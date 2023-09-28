@@ -7,16 +7,26 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
+    path: '**',
+    redirectTo: 'e404',
+    pathMatch: 'full'
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'e404',
+    loadChildren: () => import('./e404/e404.module').then( m => m.E404PageModule)
   },
 
 ];
